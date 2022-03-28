@@ -1,4 +1,7 @@
 {
   "projectId": "imzkrn",
-  "baseUrl": "http://localhost:8080"
+  "baseUrl": "http://localhost:8080",
+  "compilerOptions": {
+    "types": ["cypress", "@4tw/cypress-drag-drop"]
+  }
 }

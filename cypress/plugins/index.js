@@ -16,32 +16,7 @@
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
-const mongoose = require('mongoose')
-const Utilisateurs = require('../../models/inscription')
-
-module.exports = async (on, config) => {
+module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-
-  on('task', {
-    async clearUsers() {
-      
-      mongoose
-        .connect(`mongodb://localhost/${process.env.DB_NAME}`, {
-            useNewUrlParser: true,
-            useCreateIndex: true,
-            useUnifiedTopology: true,
-            useFindAndModify: false,
-        })
-        .then(() => console.log('MongoDB database Connected...'))
-        .catch((err) => console.log(err))
-      console.log(Utilisateurs)
-      mongoose.connection.db.dropCollection('Utilisateurs', function(err, result) {
-        console.log(err)
-      });
-      await Utilisateurs.remove({})
-
-      return null
-    },
-  })
 }

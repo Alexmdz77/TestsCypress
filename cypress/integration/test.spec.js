@@ -6,10 +6,6 @@ describe('My First Test', () => {
     const password = "123456";
     const tooShortPassword = "123";
 
-    before( async () => {
-        console.log(await cy.task('clearUsers'))
-    })
-
     it('Check too short password for register', () => {
         cy.visit('/inscription')
 
@@ -45,25 +41,28 @@ describe('My First Test', () => {
         cy.location('pathname').should('eq', '/')
     })
 
-    const project_name = ""
+    const project_name = "Nouveau Projet";
+    const column_name = "Nouvelle colonne";
+    const task_name = "Nouvelle tâche";
 
     it('Fill mandatory fields for create a new project', () => {
         cy.visit('/mes_projets')
 
         cy.get('[data-cy="new-project"]').click()
         cy.get('[data-cy="project-name"]').type(`${project_name}`)
-        cy.get('[data-cy="new-project"]').click()
-        cy.get('[data-cy="new-project"]').click()
-        cy.get('[data-cy=password]').type(`${password}`)
-
-        cy.get('[data-cy=submit]').click()
+        cy.get('[aria-label="Increment"]').click()
+        cy.get('[data-cy="column-1"]').type(`${column_name}`)
+        cy.get('[data-cy="date-picker"]').click()
+        cy.get('[data-date="2022-02-27"]').click()
+        
+        cy.get('#modal-prevent-closing___BV_modal_footer_').contains('OK').click()
     })
     it('Fill mandatory fields for add a new card', () => {
-        cy.visit('/connexion')
-
-        cy.get('[data-cy=email]').type(`${email}`)
-        cy.get('[data-cy=password]').type(`${password}`)
-
-        cy.get('[data-cy=submit]').click()
+        cy.visit('/mes_projets')
+        
+        cy.get('[data-cy="view-project-62421e4a2906bd32605ca2c1"]').click()
+        cy.get('[data-cy="input-task-0"]').type(`${task_name}`)
+        cy.get(':nth-child(1) > .input-group > .btn').click()
+        cy.get(':nth-child(1) > .drag-inner-list > :nth-child(1)').drag(':nth-child(2) > .drag-inner-list')
     })
 })

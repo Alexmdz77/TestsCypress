@@ -88,6 +88,7 @@
                 <b-input
                   placeholder="Ajouter une tache"
                   v-model="taskValue[index].value"
+                  :data-cy="'input-task-'+index"
                 ></b-input>
                 <b-button @click="add(index)" variant="dark"
                   ><b-icon-plus></b-icon-plus

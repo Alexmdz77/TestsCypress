@@ -90,6 +90,7 @@
               @click="showProject(row.item._id)"
               size="sm"
               variant="outline-primary"
+              :data-cy="'view-project-'+row.item._id"
             >
               Consulter
             </b-button>
