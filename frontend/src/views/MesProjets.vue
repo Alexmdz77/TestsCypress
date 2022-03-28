@@ -7,6 +7,7 @@
       v-b-modal.modal-prevent-closing
       variant="outline-primary"
       id="addbutton"
+      data-cy="new-project"
       >Nouveau projet</b-button
     >
 
@@ -140,6 +141,7 @@
             v-model="name"
             :state="nameState"
             placeholder="Entrez le nom du projet"
+            data-cy="project-name"
             required
           ></b-form-input>
         </b-form-group>
@@ -152,6 +154,7 @@
                 v-model="rowsSize"
                 min="2"
                 :max="maxRows"
+                data-cy="spin-button"
               ></b-form-spinbutton>
             </b-form-group>
           </b-list-group-item>
@@ -164,6 +167,7 @@
                 v-model="rowsName[index]"
                 placeholder="Nom de la colonne"
                 invalid-feedback="Le nom de la colonne est obligatoire"
+                :data-cy="'column-'+index"
                 required
               ></b-form-input>
             </div>
@@ -193,6 +197,7 @@
           id="example-datepicker"
           v-model="limitDate"
           class="mb-2"
+          data-cy="date-picker"
         ></b-form-datepicker>
       </form>
     </b-modal>

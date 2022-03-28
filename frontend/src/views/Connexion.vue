@@ -12,6 +12,7 @@
                   placeholder="Adresse email"
                   v-model="email"
                   type="email"
+                  data-cy="email"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -26,6 +27,7 @@
                   type="password"
                   ref="password"
                   name="password"
+                  data-cy="password"
                   required
                 ></b-form-input>
               </b-form-group>
@@ -34,6 +36,7 @@
           <b-row align-h="center" id="button">
             <b-col md="10">
               <b-btn block variant="primary" size="lg" @click="login"
+                  data-cy="submit"
                 >Connexion</b-btn
               >
             </b-col>

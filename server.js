@@ -15,7 +15,7 @@ app.use(morgan('tiny'))
 app.use(bodyParser.json())
 
 mongoose
-    .connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@localhost/${process.env.DB_NAME}`, {
+    .connect(`mongodb://localhost/${process.env.DB_NAME}`, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,

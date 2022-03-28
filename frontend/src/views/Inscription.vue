@@ -16,6 +16,7 @@
                   v-model="nom"
                   :state="nomState"
                   placeholder="Nom d'utilisateur"
+                  data-cy="username"
                   required
                 >
                 </b-form-input>
@@ -36,6 +37,7 @@
                   :state="emailState"
                   aria-describedby="input-email"
                   placeholder="Adresse Email"
+                  data-cy="email"
                   required
                 >
                 </b-form-input>
@@ -59,6 +61,7 @@
                   type="password"
                   v-model="password"
                   placeholder="Mot de passe"
+                  data-cy="password"
                   required
                 >
                 </b-form-input>
@@ -82,6 +85,7 @@
                   type="password"
                   v-model="passwordBis"
                   placeholder="Retapez votre mot de passe"
+                  data-cy="password2"
                   required
                 >
                 </b-form-input>
@@ -102,6 +106,7 @@
                   :disabled="buttonValid"
                   size = "lg"
                   id="buttonregister"
+                  data-cy="submit"
                   >S'inscrire</b-button
                 >
               </b-form-group>
