@@ -53,16 +53,24 @@ describe('My First Test', () => {
         cy.get('[aria-label="Increment"]').click()
         cy.get('[data-cy="column-1"]').type(`${column_name}`)
         cy.get('[data-cy="date-picker"]').click()
-        cy.get('[data-date="2022-02-27"]').click()
+        cy.get('[data-date="2022-04-27"]').click()
         
         cy.get('#modal-prevent-closing___BV_modal_footer_').contains('OK').click()
     })
     it('Fill mandatory fields for add a new card', () => {
         cy.visit('/mes_projets')
         
-        cy.get('[data-cy="view-project-62421e4a2906bd32605ca2c1"]').click()
+        cy.get('[aria-rowindex="1"] > [aria-colindex="4"] > :nth-child(1) > div > [data-cy="view-project"]').click()
         cy.get('[data-cy="input-task-0"]').type(`${task_name}`)
         cy.get(':nth-child(1) > .input-group > .btn').click()
-        cy.get(':nth-child(1) > .drag-inner-list > :nth-child(1)').drag(':nth-child(2) > .drag-inner-list')
+    
+    })
+    it('Move card', () => {
+
+        const dataTransfer = new DataTransfer;
+
+        cy.get(':nth-child(1) > .drag-inner-list > :nth-child(1)').drag(':nth-child(2) > .drag-inner-list').then((success) => {
+            assert.isTrue(success)
+        })
     })
 })
